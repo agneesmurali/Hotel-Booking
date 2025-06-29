@@ -1,6 +1,6 @@
-import User from "../models/User";
+import User from "../models/User.js";
 import { Webhook } from "svix";
-import User from "../models/User";
+
 
 const clerkWebhooks=async(req,res)=>{
     try{
@@ -37,7 +37,7 @@ const clerkWebhooks=async(req,res)=>{
                 break;
             }
             case"user.deleted":{
-                await User.findByIdAndDeleted(data.id);
+                await User.findByIdAndDelete(data.id);
                 break;
         }
         default:
@@ -50,7 +50,7 @@ const clerkWebhooks=async(req,res)=>{
         
     }catch(error){
         console.log(error.message);
-        res.status(400).json({success:false,message:error.message});
+        res .json({success:false,message:error.message});
 
     }
 }
