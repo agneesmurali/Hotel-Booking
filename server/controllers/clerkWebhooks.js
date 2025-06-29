@@ -19,7 +19,7 @@ const clerWebhooks=async(req,res)=>{
         const {data,type}=req.body
         const userData={
             _id: data.id,
-            email:data.email_addresses[0].email_adress,
+            email:data.email_addresses[0].email_address,
             username:data.first_name+" "+data.last_name,
             image:data.image_url,
         }
@@ -35,8 +35,8 @@ const clerWebhooks=async(req,res)=>{
                 await User.findByIdAndUpdate(data.id,userData);
                 break;
             }
-            case"user.delated":{
-                await User.findByIdAnddDeleted(data.id);
+            case"user.deleted":{
+                await User.findByIdAndDeleted(data.id);
                 break;
         }
         default:
@@ -49,7 +49,7 @@ const clerWebhooks=async(req,res)=>{
         
     }catch(error){
         console.log(error.message);
-        res.json({sucess:false,message:error.message});
+        res.status(400).json({success:false,message:error.message});
 
     }
 }
