@@ -84,7 +84,7 @@ export const cities = [
     "Madurai",
     "Dindugal",
     "Coimbatore",
-    "Salem",
+    
 ];
 
 // Exclusive Offers Dummy Data
