@@ -84,6 +84,7 @@ export const cities = [
     "Madurai",
     "Dindugal",
     "Coimbatore",
+    "Salem",
     
 ];
 
